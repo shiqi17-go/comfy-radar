@@ -104,6 +104,41 @@ def usage_hint(m):
     }.get(t, "ComfyUI/models 对应子目录")
 
 
+# LoRA 规则分类器：无需 AI，按名字+标签关键词自动归类
+LORA_CAT_RULES = [
+    ("工具增强", ["upscale", "detailer", "detail", "enhance", "fix", "hand fix",
+                  "deblur", "sharpen", "quality", "hd", "anti-blur", "noise", "clarity"]),
+    ("姿势动作", ["pose", "action", "gesture", "perspective", "angle", "sitting",
+                  "standing", "lying", "fighting", "holding", "hug", "kiss"]),
+    ("服装", ["dress", "outfit", "costume", "clothing", "uniform", "bikini", "kimono",
+              "armor", "suit", "hat", "cosplay", "skirt", "hoodie", "jacket"]),
+    ("角色", ["character", " oc", "original character", "girl", "boy", "waifu",
+              "husbando", "celebrity", "vtuber", "persona", "my oc"]),
+    ("身体五官", ["face", "eyes", "skin", "body", "breast", "abs", "muscle",
+                  "hair", "smile", "expression", "makeup", "lips"]),
+    ("场景背景", ["background", "scenery", "landscape", "city", "room", "indoor",
+                  "outdoor", "nature", "lighting", "atmosphere", "night", "rain"]),
+    ("风格", ["style", "painting", "watercolor", "ghibli", "pixel", "flat",
+              "illustration", "sketch", "comic", "manga", "anime", "3d", "realistic",
+              "cyberpunk", "retro", "vintage"]),
+    ("概念特效", ["effect", "filter", "film", "photo", "bokeh", "vfx", "material",
+                  "texture", "product", "object", "vehicle", "weapon", "food", "animal"]),
+]
+
+
+def classify_lora(m):
+    """给 LoRA 自动分类，返回中文类名。"""
+    if m.get("type") != "LORA":
+        return ""
+    text = " ".join([m.get("name") or "",
+                     " ".join(m.get("tags") or []),
+                     m.get("description") or ""]).lower()
+    for cat, keywords in LORA_CAT_RULES:
+        if any(k in text for k in keywords):
+            return cat
+    return "概念特效"
+
+
 def _norm_model(item):
     ver = (item.get("modelVersions") or [{}])[0]
     images = ver.get("images") or []
@@ -144,6 +179,7 @@ def _norm_model(item):
     }
     m["vram"] = vram_hint(m)
     m["usageDir"] = usage_hint(m)
+    m["category"] = classify_lora(m)
     return m
 
 

@@ -44,6 +44,11 @@
   .chip { padding: 6px 14px; border-radius: 16px; background: transparent; border: 1px solid var(--border);
           cursor: pointer; font-size: 13px; color: var(--muted); }
   .chip.active { color: var(--accent); border-color: var(--accent); background: rgba(108,92,231,.08); }
+  .subfilters { display: none; width: 100%; gap: 8px; flex-wrap: wrap; }
+  .subfilters.show { display: flex; }
+  .subchip { padding: 5px 12px; border-radius: 14px; background: #fff; border: 1px dashed var(--border);
+             cursor: pointer; font-size: 12px; color: var(--muted); }
+  .subchip.active { color: var(--green); border-color: var(--green); border-style: solid; background: rgba(0,184,148,.08); }
   #search { margin-left: auto; padding: 8px 14px; border-radius: 20px; border: 1px solid var(--border);
             background: #fff; color: var(--text); font-size: 14px; width: 220px; outline: none; }
 
@@ -130,6 +135,17 @@
       <div class="chip" data-f="LORA">LoRA</div>
       <div class="chip" data-f="plugin">插件</div>
     </div>
+    <div class="subfilters" id="subfilters">
+      <div class="subchip active" data-c="">全部 LoRA</div>
+      <div class="subchip" data-c="风格">🎨 风格</div>
+      <div class="subchip" data-c="角色">👤 角色</div>
+      <div class="subchip" data-c="服装">👗 服装</div>
+      <div class="subchip" data-c="姿势动作">🤸 姿势动作</div>
+      <div class="subchip" data-c="身体五官">😊 身体五官</div>
+      <div class="subchip" data-c="场景背景">🏙 场景背景</div>
+      <div class="subchip" data-c="概念特效">✨ 概念特效</div>
+      <div class="subchip" data-c="工具增强">🔧 工具增强</div>
+    </div>
     <input id="search" placeholder="搜索名称 / 作者 / 标签…">
   </div>
 
@@ -144,7 +160,7 @@
 <script>
 let DATA = { models: [], plugins: [] };
 let SUMMARIES = {};
-let state = { tab: "new", filter: "all", q: "" };
+let state = { tab: "new", filter: "all", sub: "", q: "" };
 
 const $ = s => document.querySelector(s);
 const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
@@ -197,6 +213,8 @@ function items() {
   } else {
     list = DATA.models.filter(m => state.filter === "all" || m.type === state.filter)
                       .map(m => ({ ...m, _kind: m.type }));
+    if (state.filter === "LORA" && state.sub)
+      list = list.filter(x => x.category === state.sub);
   }
   if (state.q) {
     const q = state.q.toLowerCase();
@@ -219,7 +237,7 @@ function badge(x) {
   if (x._kind === "plugin") h = `<span class="badge b-plugin">插件</span>`;
   else {
     const cls = x.type === "Checkpoint" ? "b-checkpoint" : "b-lora";
-    h = `<span class="badge ${cls}">${x.type === "Checkpoint" ? "大模型" : "LoRA"}</span>` +
+    h = `<span class="badge ${cls}">${x.type === "Checkpoint" ? "大模型" : "LoRA" + (x.category ? "·" + esc(x.category) : "")}</span>` +
         (x.baseModel ? `<span class="badge b-base">${esc(x.baseModel)}</span>` : "");
   }
   if (isNew(x.publishedAt || x.updatedAt)) h += `<span class="badge b-new">NEW</span>`;
@@ -337,7 +355,16 @@ document.querySelectorAll(".tab").forEach(t => t.addEventListener("click", () =>
 }));
 document.querySelectorAll(".chip").forEach(c => c.addEventListener("click", () => {
   document.querySelectorAll(".chip").forEach(x => x.classList.remove("active"));
-  c.classList.add("active"); state.filter = c.dataset.f; render();
+  c.classList.add("active"); state.filter = c.dataset.f;
+  state.sub = "";
+  document.querySelectorAll(".subchip").forEach(x => x.classList.remove("active"));
+  document.querySelector('.subchip[data-c=""]').classList.add("active");
+  $("#subfilters").classList.toggle("show", state.filter === "LORA");
+  render();
+}));
+document.querySelectorAll(".subchip").forEach(c => c.addEventListener("click", () => {
+  document.querySelectorAll(".subchip").forEach(x => x.classList.remove("active"));
+  c.classList.add("active"); state.sub = c.dataset.c; render();
 }));
 $("#search").addEventListener("input", e => { state.q = e.target.value.trim(); render(); });
 

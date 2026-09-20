@@ -1529,7 +1529,8 @@
    "growth": 0,
    "vram": "随底座模型，LoRA 本身几乎不占额外显存",
    "usageDir": "ComfyUI/models/loras",
-   "imageLocal": "data/covers/2938742.jpg"
+   "imageLocal": "data/covers/2938742.jpg",
+   "category": "角色"
   },
   {
    "id": 2951036,
@@ -1562,7 +1563,8 @@
    "growth": 0,
    "vram": "随底座模型，LoRA 本身几乎不占额外显存",
    "usageDir": "ComfyUI/models/loras",
-   "imageLocal": "data/covers/2951036.jpg"
+   "imageLocal": "data/covers/2951036.jpg",
+   "category": "风格"
   },
   {
    "id": 2879595,
@@ -1596,7 +1598,8 @@
    "growth": 0,
    "vram": "随底座模型，LoRA 本身几乎不占额外显存",
    "usageDir": "ComfyUI/models/loras",
-   "imageLocal": "data/covers/2879595.jpg"
+   "imageLocal": "data/covers/2879595.jpg",
+   "category": "角色"
   },
   {
    "id": 2948766,
@@ -1629,7 +1632,8 @@
    "growth": 0,
    "vram": "随底座模型，LoRA 本身几乎不占额外显存",
    "usageDir": "ComfyUI/models/loras",
-   "imageLocal": "data/covers/2948766.jpg"
+   "imageLocal": "data/covers/2948766.jpg",
+   "category": "概念特效"
   },
   {
    "id": 2896580,
@@ -1670,7 +1674,8 @@
    "growth": 0,
    "vram": "随底座模型，LoRA 本身几乎不占额外显存",
    "usageDir": "ComfyUI/models/loras",
-   "imageLocal": "data/covers/2896580.jpg"
+   "imageLocal": "data/covers/2896580.jpg",
+   "category": "风格"
   },
   {
    "id": 2950903,
@@ -1704,7 +1709,8 @@
    "growth": 0,
    "vram": "随底座模型，LoRA 本身几乎不占额外显存",
    "usageDir": "ComfyUI/models/loras",
-   "imageLocal": "data/covers/2950903.jpg"
+   "imageLocal": "data/covers/2950903.jpg",
+   "category": "风格"
   },
   {
    "id": 2951214,
@@ -1739,7 +1745,8 @@
    "growth": 0,
    "vram": "随底座模型，LoRA 本身几乎不占额外显存",
    "usageDir": "ComfyUI/models/loras",
-   "imageLocal": "data/covers/2951214.jpg"
+   "imageLocal": "data/covers/2951214.jpg",
+   "category": "角色"
   },
   {
    "id": 2950878,
@@ -1777,7 +1784,8 @@
    "growth": 0,
    "vram": "随底座模型，LoRA 本身几乎不占额外显存",
    "usageDir": "ComfyUI/models/loras",
-   "imageLocal": "data/covers/2950878.jpg"
+   "imageLocal": "data/covers/2950878.jpg",
+   "category": "角色"
   },
   {
    "id": 2951189,
@@ -1811,7 +1819,8 @@
    "growth": 0,
    "vram": "随底座模型，LoRA 本身几乎不占额外显存",
    "usageDir": "ComfyUI/models/loras",
-   "imageLocal": "data/covers/2951189.jpg"
+   "imageLocal": "data/covers/2951189.jpg",
+   "category": "角色"
   },
   {
    "id": 2951193,
@@ -1848,7 +1857,8 @@
    "growth": 0,
    "vram": "随底座模型，LoRA 本身几乎不占额外显存",
    "usageDir": "ComfyUI/models/loras",
-   "imageLocal": "data/covers/2951193.jpg"
+   "imageLocal": "data/covers/2951193.jpg",
+   "category": "角色"
   },
   {
    "id": 2949231,
@@ -1897,7 +1907,8 @@
    "growth": 0,
    "vram": "随底座模型，LoRA 本身几乎不占额外显存",
    "usageDir": "ComfyUI/models/loras",
-   "imageLocal": "data/covers/2949231.jpg"
+   "imageLocal": "data/covers/2949231.jpg",
+   "category": "角色"
   },
   {
    "id": 2613187,
@@ -1935,7 +1946,8 @@
    "growth": 0,
    "vram": "随底座模型，LoRA 本身几乎不占额外显存",
    "usageDir": "ComfyUI/models/loras",
-   "imageLocal": "data/covers/2613187.jpg"
+   "imageLocal": "data/covers/2613187.jpg",
+   "category": "角色"
   },
   {
    "id": 2950787,
@@ -1973,7 +1985,8 @@
    "growth": 0,
    "vram": "随底座模型，LoRA 本身几乎不占额外显存",
    "usageDir": "ComfyUI/models/loras",
-   "imageLocal": "data/covers/2950787.jpg"
+   "imageLocal": "data/covers/2950787.jpg",
+   "category": "角色"
   },
   {
    "id": 2951167,
@@ -2011,7 +2024,8 @@
    "growth": 0,
    "vram": "随底座模型，LoRA 本身几乎不占额外显存",
    "usageDir": "ComfyUI/models/loras",
-   "imageLocal": "data/covers/2951167.jpg"
+   "imageLocal": "data/covers/2951167.jpg",
+   "category": "角色"
   },
   {
    "id": 2951153,
@@ -2049,7 +2063,8 @@
    "growth": 0,
    "vram": "随底座模型，LoRA 本身几乎不占额外显存",
    "usageDir": "ComfyUI/models/loras",
-   "imageLocal": "data/covers/2951153.jpg"
+   "imageLocal": "data/covers/2951153.jpg",
+   "category": "角色"
   },
   {
    "id": 2951161,
@@ -2089,7 +2104,8 @@
    "growth": 0,
    "vram": "随底座模型，LoRA 本身几乎不占额外显存",
    "usageDir": "ComfyUI/models/loras",
-   "imageLocal": "data/covers/2951161.jpg"
+   "imageLocal": "data/covers/2951161.jpg",
+   "category": "角色"
   },
   {
    "id": 2949934,
@@ -2130,7 +2146,8 @@
    "growth": 0,
    "vram": "随底座模型，LoRA 本身几乎不占额外显存",
    "usageDir": "ComfyUI/models/loras",
-   "imageLocal": "data/covers/2949934.jpg"
+   "imageLocal": "data/covers/2949934.jpg",
+   "category": "角色"
   },
   {
    "id": 2950993,
@@ -2163,7 +2180,8 @@
    "growth": 0,
    "vram": "随底座模型，LoRA 本身几乎不占额外显存",
    "usageDir": "ComfyUI/models/loras",
-   "imageLocal": "data/covers/2950993.jpg"
+   "imageLocal": "data/covers/2950993.jpg",
+   "category": "角色"
   },
   {
    "id": 2951121,
@@ -2197,7 +2215,8 @@
    "growth": 0,
    "vram": "随底座模型，LoRA 本身几乎不占额外显存",
    "usageDir": "ComfyUI/models/loras",
-   "imageLocal": "data/covers/2951121.jpg"
+   "imageLocal": "data/covers/2951121.jpg",
+   "category": "角色"
   },
   {
    "id": 2946449,
@@ -2236,7 +2255,8 @@
    "growth": 0,
    "vram": "随底座模型，LoRA 本身几乎不占额外显存",
    "usageDir": "ComfyUI/models/loras",
-   "imageLocal": "data/covers/2946449.jpg"
+   "imageLocal": "data/covers/2946449.jpg",
+   "category": "场景背景"
   },
   {
    "id": 2951137,
@@ -2269,7 +2289,8 @@
    "growth": 0,
    "vram": "随底座模型，LoRA 本身几乎不占额外显存",
    "usageDir": "ComfyUI/models/loras",
-   "imageLocal": "data/covers/2951137.jpg"
+   "imageLocal": "data/covers/2951137.jpg",
+   "category": "角色"
   },
   {
    "id": 2903553,
@@ -2301,7 +2322,8 @@
    "growth": 0,
    "vram": "随底座模型，LoRA 本身几乎不占额外显存",
    "usageDir": "ComfyUI/models/loras",
-   "imageLocal": "data/covers/2903553.jpg"
+   "imageLocal": "data/covers/2903553.jpg",
+   "category": "风格"
   },
   {
    "id": 2585476,
@@ -2335,7 +2357,8 @@
    "growth": 0,
    "vram": "随底座模型，LoRA 本身几乎不占额外显存",
    "usageDir": "ComfyUI/models/loras",
-   "imageLocal": "data/covers/2585476.jpg"
+   "imageLocal": "data/covers/2585476.jpg",
+   "category": "角色"
   },
   {
    "id": 2951109,
@@ -2369,7 +2392,8 @@
    ],
    "growth": 0,
    "vram": "随底座模型，LoRA 本身几乎不占额外显存",
-   "usageDir": "ComfyUI/models/loras"
+   "usageDir": "ComfyUI/models/loras",
+   "category": "工具增强"
   },
   {
    "id": 2951105,
@@ -2403,7 +2427,8 @@
    "growth": 0,
    "vram": "随底座模型，LoRA 本身几乎不占额外显存",
    "usageDir": "ComfyUI/models/loras",
-   "imageLocal": "data/covers/2951105.jpg"
+   "imageLocal": "data/covers/2951105.jpg",
+   "category": "角色"
   },
   {
    "id": 2951098,
@@ -2436,7 +2461,8 @@
    "growth": 0,
    "vram": "随底座模型，LoRA 本身几乎不占额外显存",
    "usageDir": "ComfyUI/models/loras",
-   "imageLocal": "data/covers/2951098.jpg"
+   "imageLocal": "data/covers/2951098.jpg",
+   "category": "服装"
   },
   {
    "id": 2308387,
@@ -2476,7 +2502,8 @@
    "growth": 0,
    "vram": "随底座模型，LoRA 本身几乎不占额外显存",
    "usageDir": "ComfyUI/models/loras",
-   "imageLocal": "data/covers/2308387.jpg"
+   "imageLocal": "data/covers/2308387.jpg",
+   "category": "角色"
   },
   {
    "id": 2951099,
@@ -2511,7 +2538,8 @@
    "growth": 0,
    "vram": "随底座模型，LoRA 本身几乎不占额外显存",
    "usageDir": "ComfyUI/models/loras",
-   "imageLocal": "data/covers/2951099.jpg"
+   "imageLocal": "data/covers/2951099.jpg",
+   "category": "角色"
   },
   {
    "id": 2308393,
@@ -2551,7 +2579,8 @@
    "growth": 0,
    "vram": "随底座模型，LoRA 本身几乎不占额外显存",
    "usageDir": "ComfyUI/models/loras",
-   "imageLocal": "data/covers/2308393.jpg"
+   "imageLocal": "data/covers/2308393.jpg",
+   "category": "角色"
   },
   {
    "id": 2951051,
@@ -2581,7 +2610,8 @@
    "growth": 0,
    "vram": "随底座模型，LoRA 本身几乎不占额外显存",
    "usageDir": "ComfyUI/models/loras",
-   "imageLocal": "data/covers/2951051.jpg"
+   "imageLocal": "data/covers/2951051.jpg",
+   "category": "角色"
   },
   {
    "id": 2304707,
@@ -2621,7 +2651,8 @@
    "growth": 0,
    "vram": "随底座模型，LoRA 本身几乎不占额外显存",
    "usageDir": "ComfyUI/models/loras",
-   "imageLocal": "data/covers/2304707.jpg"
+   "imageLocal": "data/covers/2304707.jpg",
+   "category": "角色"
   },
   {
    "id": 1700394,
@@ -2662,7 +2693,8 @@
    "growth": 0,
    "vram": "随底座模型，LoRA 本身几乎不占额外显存",
    "usageDir": "ComfyUI/models/loras",
-   "imageLocal": "data/covers/1700394.jpg"
+   "imageLocal": "data/covers/1700394.jpg",
+   "category": "角色"
   },
   {
    "id": 2475408,
@@ -2703,7 +2735,8 @@
    "growth": 0,
    "vram": "随底座模型，LoRA 本身几乎不占额外显存",
    "usageDir": "ComfyUI/models/loras",
-   "imageLocal": "data/covers/2475408.jpg"
+   "imageLocal": "data/covers/2475408.jpg",
+   "category": "角色"
   },
   {
    "id": 2951078,
@@ -2743,7 +2776,8 @@
    "growth": 0,
    "vram": "随底座模型，LoRA 本身几乎不占额外显存",
    "usageDir": "ComfyUI/models/loras",
-   "imageLocal": "data/covers/2951078.jpg"
+   "imageLocal": "data/covers/2951078.jpg",
+   "category": "角色"
   },
   {
    "id": 2946499,
@@ -2781,7 +2815,8 @@
    "growth": 0,
    "vram": "随底座模型，LoRA 本身几乎不占额外显存",
    "usageDir": "ComfyUI/models/loras",
-   "imageLocal": "data/covers/2946499.jpg"
+   "imageLocal": "data/covers/2946499.jpg",
+   "category": "角色"
   },
   {
    "id": 1444215,
@@ -2816,7 +2851,8 @@
    "growth": 0,
    "vram": "随底座模型，LoRA 本身几乎不占额外显存",
    "usageDir": "ComfyUI/models/loras",
-   "imageLocal": "data/covers/1444215.jpg"
+   "imageLocal": "data/covers/1444215.jpg",
+   "category": "角色"
   },
   {
    "id": 817185,
@@ -2854,7 +2890,8 @@
    "growth": 0,
    "vram": "随底座模型，LoRA 本身几乎不占额外显存",
    "usageDir": "ComfyUI/models/loras",
-   "imageLocal": "data/covers/817185.jpg"
+   "imageLocal": "data/covers/817185.jpg",
+   "category": "角色"
   },
   {
    "id": 2951059,
@@ -2892,7 +2929,8 @@
    "growth": 0,
    "vram": "随底座模型，LoRA 本身几乎不占额外显存",
    "usageDir": "ComfyUI/models/loras",
-   "imageLocal": "data/covers/2951059.jpg"
+   "imageLocal": "data/covers/2951059.jpg",
+   "category": "角色"
   },
   {
    "id": 2951056,
@@ -2931,7 +2969,8 @@
    "growth": 0,
    "vram": "随底座模型，LoRA 本身几乎不占额外显存",
    "usageDir": "ComfyUI/models/loras",
-   "imageLocal": "data/covers/2951056.jpg"
+   "imageLocal": "data/covers/2951056.jpg",
+   "category": "角色"
   },
   {
    "id": 2951014,
@@ -2967,7 +3006,8 @@
    "growth": 0,
    "vram": "随底座模型，LoRA 本身几乎不占额外显存",
    "usageDir": "ComfyUI/models/loras",
-   "imageLocal": "data/covers/2951014.jpg"
+   "imageLocal": "data/covers/2951014.jpg",
+   "category": "角色"
   },
   {
    "id": 958009,
@@ -4055,7 +4095,8 @@
    "growth": 0,
    "vram": "随底座模型，LoRA 本身几乎不占额外显存",
    "usageDir": "ComfyUI/models/loras",
-   "imageLocal": "data/covers/723360.jpg"
+   "imageLocal": "data/covers/723360.jpg",
+   "category": "风格"
   },
   {
    "id": 604286,
@@ -4095,7 +4136,8 @@
    "growth": 0,
    "vram": "随底座模型，LoRA 本身几乎不占额外显存",
    "usageDir": "ComfyUI/models/loras",
-   "imageLocal": "data/covers/604286.jpg"
+   "imageLocal": "data/covers/604286.jpg",
+   "category": "服装"
   },
   {
    "id": 445063,
@@ -4133,7 +4175,8 @@
    "growth": 0,
    "vram": "随底座模型，LoRA 本身几乎不占额外显存",
    "usageDir": "ComfyUI/models/loras",
-   "imageLocal": "data/covers/445063.jpg"
+   "imageLocal": "data/covers/445063.jpg",
+   "category": "服装"
   },
   {
    "id": 1324671,
@@ -4185,7 +4228,8 @@
    "growth": 0,
    "vram": "随底座模型，LoRA 本身几乎不占额外显存",
    "usageDir": "ComfyUI/models/loras",
-   "imageLocal": "data/covers/1324671.jpg"
+   "imageLocal": "data/covers/1324671.jpg",
+   "category": "风格"
   },
   {
    "id": 575169,
@@ -4227,7 +4271,8 @@
    "growth": 0,
    "vram": "随底座模型，LoRA 本身几乎不占额外显存",
    "usageDir": "ComfyUI/models/loras",
-   "imageLocal": "data/covers/575169.jpg"
+   "imageLocal": "data/covers/575169.jpg",
+   "category": "服装"
   },
   {
    "id": 886686,
@@ -4267,7 +4312,8 @@
    "growth": 0,
    "vram": "随底座模型，LoRA 本身几乎不占额外显存",
    "usageDir": "ComfyUI/models/loras",
-   "imageLocal": "data/covers/886686.jpg"
+   "imageLocal": "data/covers/886686.jpg",
+   "category": "风格"
   },
   {
    "id": 1711037,
@@ -4317,7 +4363,8 @@
    "growth": 0,
    "vram": "随底座模型，LoRA 本身几乎不占额外显存",
    "usageDir": "ComfyUI/models/loras",
-   "imageLocal": "data/covers/1711037.jpg"
+   "imageLocal": "data/covers/1711037.jpg",
+   "category": "场景背景"
   },
   {
    "id": 2837571,
@@ -4357,7 +4404,8 @@
    "growth": 0,
    "vram": "随底座模型，LoRA 本身几乎不占额外显存",
    "usageDir": "ComfyUI/models/loras",
-   "imageLocal": "data/covers/2837571.jpg"
+   "imageLocal": "data/covers/2837571.jpg",
+   "category": "工具增强"
   },
   {
    "id": 2329053,
@@ -4402,7 +4450,8 @@
    "growth": 0,
    "vram": "随底座模型，LoRA 本身几乎不占额外显存",
    "usageDir": "ComfyUI/models/loras",
-   "imageLocal": "data/covers/2329053.jpg"
+   "imageLocal": "data/covers/2329053.jpg",
+   "category": "概念特效"
   },
   {
    "id": 1345932,
@@ -4442,7 +4491,8 @@
    "growth": 0,
    "vram": "随底座模型，LoRA 本身几乎不占额外显存",
    "usageDir": "ComfyUI/models/loras",
-   "imageLocal": "data/covers/1345932.jpg"
+   "imageLocal": "data/covers/1345932.jpg",
+   "category": "服装"
   },
   {
    "id": 1272455,
@@ -4484,7 +4534,8 @@
    "growth": 0,
    "vram": "随底座模型，LoRA 本身几乎不占额外显存",
    "usageDir": "ComfyUI/models/loras",
-   "imageLocal": "data/covers/1272455.jpg"
+   "imageLocal": "data/covers/1272455.jpg",
+   "category": "风格"
   },
   {
    "id": 2619830,
@@ -4527,7 +4578,8 @@
    "growth": 0,
    "vram": "随底座模型，LoRA 本身几乎不占额外显存",
    "usageDir": "ComfyUI/models/loras",
-   "imageLocal": "data/covers/2619830.jpg"
+   "imageLocal": "data/covers/2619830.jpg",
+   "category": "工具增强"
   },
   {
    "id": 423197,
@@ -4572,7 +4624,8 @@
    "growth": 0,
    "vram": "随底座模型，LoRA 本身几乎不占额外显存",
    "usageDir": "ComfyUI/models/loras",
-   "imageLocal": "data/covers/423197.jpg"
+   "imageLocal": "data/covers/423197.jpg",
+   "category": "概念特效"
   },
   {
    "id": 118103,
@@ -4616,7 +4669,8 @@
    "growth": 0,
    "vram": "随底座模型，LoRA 本身几乎不占额外显存",
    "usageDir": "ComfyUI/models/loras",
-   "imageLocal": "data/covers/118103.jpg"
+   "imageLocal": "data/covers/118103.jpg",
+   "category": "场景背景"
   },
   {
    "id": 623639,
@@ -4667,7 +4721,8 @@
    "growth": 0,
    "vram": "随底座模型，LoRA 本身几乎不占额外显存",
    "usageDir": "ComfyUI/models/loras",
-   "imageLocal": "data/covers/623639.jpg"
+   "imageLocal": "data/covers/623639.jpg",
+   "category": "概念特效"
   },
   {
    "id": 153820,
@@ -4713,7 +4768,8 @@
    ],
    "growth": 0,
    "vram": "随底座模型，LoRA 本身几乎不占额外显存",
-   "usageDir": "ComfyUI/models/loras"
+   "usageDir": "ComfyUI/models/loras",
+   "category": "服装"
   },
   {
    "id": 154583,
@@ -4762,7 +4818,8 @@
    ],
    "growth": 0,
    "vram": "随底座模型，LoRA 本身几乎不占额外显存",
-   "usageDir": "ComfyUI/models/loras"
+   "usageDir": "ComfyUI/models/loras",
+   "category": "服装"
   },
   {
    "id": 1124066,
@@ -4812,7 +4869,8 @@
    ],
    "growth": 0,
    "vram": "随底座模型，LoRA 本身几乎不占额外显存",
-   "usageDir": "ComfyUI/models/loras"
+   "usageDir": "ComfyUI/models/loras",
+   "category": "概念特效"
   },
   {
    "id": 1317767,
@@ -4847,7 +4905,8 @@
    ],
    "growth": 0,
    "vram": "随底座模型，LoRA 本身几乎不占额外显存",
-   "usageDir": "ComfyUI/models/loras"
+   "usageDir": "ComfyUI/models/loras",
+   "category": "角色"
   },
   {
    "id": 1347266,
@@ -4893,7 +4952,8 @@
    ],
    "growth": 0,
    "vram": "随底座模型，LoRA 本身几乎不占额外显存",
-   "usageDir": "ComfyUI/models/loras"
+   "usageDir": "ComfyUI/models/loras",
+   "category": "角色"
   },
   {
    "id": 2396594,
@@ -4937,7 +4997,8 @@
    ],
    "growth": 0,
    "vram": "随底座模型，LoRA 本身几乎不占额外显存",
-   "usageDir": "ComfyUI/models/loras"
+   "usageDir": "ComfyUI/models/loras",
+   "category": "风格"
   },
   {
    "id": 2126663,
@@ -4982,7 +5043,8 @@
    ],
    "growth": 0,
    "vram": "随底座模型，LoRA 本身几乎不占额外显存",
-   "usageDir": "ComfyUI/models/loras"
+   "usageDir": "ComfyUI/models/loras",
+   "category": "风格"
   },
   {
    "id": 704559,
@@ -5018,7 +5080,8 @@
    ],
    "growth": 0,
    "vram": "随底座模型，LoRA 本身几乎不占额外显存",
-   "usageDir": "ComfyUI/models/loras"
+   "usageDir": "ComfyUI/models/loras",
+   "category": "角色"
   },
   {
    "id": 1237422,
@@ -5054,7 +5117,8 @@
    ],
    "growth": 0,
    "vram": "随底座模型，LoRA 本身几乎不占额外显存",
-   "usageDir": "ComfyUI/models/loras"
+   "usageDir": "ComfyUI/models/loras",
+   "category": "角色"
   },
   {
    "id": 185734,
@@ -5133,7 +5197,8 @@
    ],
    "growth": 0,
    "vram": "随底座模型，LoRA 本身几乎不占额外显存",
-   "usageDir": "ComfyUI/models/loras"
+   "usageDir": "ComfyUI/models/loras",
+   "category": "身体五官"
   },
   {
    "id": 2652568,
@@ -5177,7 +5242,8 @@
    ],
    "growth": 0,
    "vram": "随底座模型，LoRA 本身几乎不占额外显存",
-   "usageDir": "ComfyUI/models/loras"
+   "usageDir": "ComfyUI/models/loras",
+   "category": "场景背景"
   },
   {
    "id": 1340291,
@@ -5215,7 +5281,8 @@
    ],
    "growth": 0,
    "vram": "随底座模型，LoRA 本身几乎不占额外显存",
-   "usageDir": "ComfyUI/models/loras"
+   "usageDir": "ComfyUI/models/loras",
+   "category": "角色"
   },
   {
    "id": 296741,
@@ -5253,7 +5320,8 @@
    ],
    "growth": 0,
    "vram": "随底座模型，LoRA 本身几乎不占额外显存",
-   "usageDir": "ComfyUI/models/loras"
+   "usageDir": "ComfyUI/models/loras",
+   "category": "姿势动作"
   },
   {
    "id": 287456,
@@ -5293,7 +5361,8 @@
    ],
    "growth": 0,
    "vram": "随底座模型，LoRA 本身几乎不占额外显存",
-   "usageDir": "ComfyUI/models/loras"
+   "usageDir": "ComfyUI/models/loras",
+   "category": "角色"
   },
   {
    "id": 1726733,
@@ -5323,7 +5392,8 @@
    ],
    "growth": 0,
    "vram": "随底座模型，LoRA 本身几乎不占额外显存",
-   "usageDir": "ComfyUI/models/loras"
+   "usageDir": "ComfyUI/models/loras",
+   "category": "角色"
   },
   {
    "id": 729510,
@@ -5363,7 +5433,8 @@
    ],
    "growth": 0,
    "vram": "随底座模型，LoRA 本身几乎不占额外显存",
-   "usageDir": "ComfyUI/models/loras"
+   "usageDir": "ComfyUI/models/loras",
+   "category": "风格"
   },
   {
    "id": 516932,
@@ -5397,7 +5468,8 @@
    ],
    "growth": 0,
    "vram": "随底座模型，LoRA 本身几乎不占额外显存",
-   "usageDir": "ComfyUI/models/loras"
+   "usageDir": "ComfyUI/models/loras",
+   "category": "风格"
   },
   {
    "id": 1843013,
@@ -5432,7 +5504,8 @@
    ],
    "growth": 0,
    "vram": "随底座模型，LoRA 本身几乎不占额外显存",
-   "usageDir": "ComfyUI/models/loras"
+   "usageDir": "ComfyUI/models/loras",
+   "category": "角色"
   },
   {
    "id": 1075503,
@@ -5468,7 +5541,8 @@
    ],
    "growth": 0,
    "vram": "随底座模型，LoRA 本身几乎不占额外显存",
-   "usageDir": "ComfyUI/models/loras"
+   "usageDir": "ComfyUI/models/loras",
+   "category": "风格"
   },
   {
    "id": 1888764,
@@ -5505,7 +5579,8 @@
    ],
    "growth": 0,
    "vram": "随底座模型，LoRA 本身几乎不占额外显存",
-   "usageDir": "ComfyUI/models/loras"
+   "usageDir": "ComfyUI/models/loras",
+   "category": "风格"
   },
   {
    "id": 487264,
@@ -5540,7 +5615,8 @@
    ],
    "growth": 0,
    "vram": "随底座模型，LoRA 本身几乎不占额外显存",
-   "usageDir": "ComfyUI/models/loras"
+   "usageDir": "ComfyUI/models/loras",
+   "category": "角色"
   },
   {
    "id": 1397935,
@@ -5583,7 +5659,8 @@
    ],
    "growth": 0,
    "vram": "随底座模型，LoRA 本身几乎不占额外显存",
-   "usageDir": "ComfyUI/models/loras"
+   "usageDir": "ComfyUI/models/loras",
+   "category": "身体五官"
   },
   {
    "id": 1696941,
@@ -5622,7 +5699,8 @@
    ],
    "growth": 0,
    "vram": "随底座模型，LoRA 本身几乎不占额外显存",
-   "usageDir": "ComfyUI/models/loras"
+   "usageDir": "ComfyUI/models/loras",
+   "category": "风格"
   },
   {
    "id": 1519220,
@@ -5663,7 +5741,8 @@
    ],
    "growth": 0,
    "vram": "随底座模型，LoRA 本身几乎不占额外显存",
-   "usageDir": "ComfyUI/models/loras"
+   "usageDir": "ComfyUI/models/loras",
+   "category": "风格"
   },
   {
    "id": 1424681,
@@ -5701,7 +5780,8 @@
    ],
    "growth": 0,
    "vram": "随底座模型，LoRA 本身几乎不占额外显存",
-   "usageDir": "ComfyUI/models/loras"
+   "usageDir": "ComfyUI/models/loras",
+   "category": "风格"
   },
   {
    "id": 2842494,
@@ -5802,7 +5882,8 @@
    ],
    "growth": 0,
    "vram": "随底座模型，LoRA 本身几乎不占额外显存",
-   "usageDir": "ComfyUI/models/loras"
+   "usageDir": "ComfyUI/models/loras",
+   "category": "角色"
   },
   {
    "id": 2911848,
@@ -5836,7 +5917,8 @@
    ],
    "growth": 0,
    "vram": "随底座模型，LoRA 本身几乎不占额外显存",
-   "usageDir": "ComfyUI/models/loras"
+   "usageDir": "ComfyUI/models/loras",
+   "category": "角色"
   },
   {
    "id": 2665542,
@@ -5876,7 +5958,8 @@
    ],
    "growth": 0,
    "vram": "随底座模型，LoRA 本身几乎不占额外显存",
-   "usageDir": "ComfyUI/models/loras"
+   "usageDir": "ComfyUI/models/loras",
+   "category": "风格"
   },
   {
    "id": 1359530,
@@ -5914,7 +5997,8 @@
    ],
    "growth": 0,
    "vram": "随底座模型，LoRA 本身几乎不占额外显存",
-   "usageDir": "ComfyUI/models/loras"
+   "usageDir": "ComfyUI/models/loras",
+   "category": "风格"
   },
   {
    "id": 2294041,
@@ -5945,7 +6029,8 @@
    ],
    "growth": 0,
    "vram": "随底座模型，LoRA 本身几乎不占额外显存",
-   "usageDir": "ComfyUI/models/loras"
+   "usageDir": "ComfyUI/models/loras",
+   "category": "服装"
   },
   {
    "id": 2783657,
@@ -5980,7 +6065,8 @@
    ],
    "growth": 0,
    "vram": "随底座模型，LoRA 本身几乎不占额外显存",
-   "usageDir": "ComfyUI/models/loras"
+   "usageDir": "ComfyUI/models/loras",
+   "category": "工具增强"
   },
   {
    "id": 957327,
@@ -6025,7 +6111,8 @@
    ],
    "growth": 0,
    "vram": "随底座模型，LoRA 本身几乎不占额外显存",
-   "usageDir": "ComfyUI/models/loras"
+   "usageDir": "ComfyUI/models/loras",
+   "category": "风格"
   },
   {
    "id": 2854494,
@@ -6087,7 +6174,8 @@
    ],
    "growth": 0,
    "vram": "随底座模型，LoRA 本身几乎不占额外显存",
-   "usageDir": "ComfyUI/models/loras"
+   "usageDir": "ComfyUI/models/loras",
+   "category": "服装"
   },
   {
    "id": 1443745,
@@ -6130,7 +6218,8 @@
    ],
    "growth": 0,
    "vram": "随底座模型，LoRA 本身几乎不占额外显存",
-   "usageDir": "ComfyUI/models/loras"
+   "usageDir": "ComfyUI/models/loras",
+   "category": "角色"
   },
   {
    "id": 688577,
@@ -6163,7 +6252,8 @@
    ],
    "growth": 0,
    "vram": "随底座模型，LoRA 本身几乎不占额外显存",
-   "usageDir": "ComfyUI/models/loras"
+   "usageDir": "ComfyUI/models/loras",
+   "category": "服装"
   }
  ],
  "plugins": [
