@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ComfyRadar · ComfyUI 情报站</title>
+<style>
+  :root {
+    --bg: #f4f5fa; --card: #ffffff; --border: #e6e8f0;
+    --text: #24283b; --muted: #7a7f94; --accent: #6c5ce7;
+    --green: #00b894; --orange: #e17055; --blue: #0984e3;
+    --shadow: 0 2px 10px rgba(36,40,59,.06);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--bg); color: var(--text);
+         font-family: "PingFang SC", "Microsoft YaHei", system-ui, sans-serif; }
+  .container { max-width: 1280px; margin: 0 auto; padding: 0 20px 60px; }
+
+  /* 顶部 */
+  header { padding: 28px 0 4px; display: flex; align-items: flex-end; flex-wrap: wrap; gap: 12px; }
+  header h1 { font-size: 26px; }
+  header h1 .logo { color: var(--accent); }
+  .nav { margin-left: auto; display: flex; gap: 10px; }
+  .nav a, .nav span { font-size: 13px; color: var(--muted); text-decoration: none; cursor: pointer;
+                      padding: 6px 12px; border-radius: 16px; border: 1px solid var(--border); background: #fff; }
+  .nav a:hover, .nav span:hover { color: var(--accent); border-color: var(--accent); }
+  .sub { width: 100%; color: var(--muted); font-size: 14px; }
+  .updated { width: 100%; color: var(--muted); font-size: 12px; }
+
+  /* 今日看点 */
+  .daily { margin: 18px 0 6px; background: linear-gradient(120deg, #6c5ce7, #0984e3);
+           border-radius: 14px; padding: 20px 24px; color: #fff; display: flex; gap: 36px; flex-wrap: wrap; }
+  .daily .item .num { font-size: 28px; font-weight: 700; }
+  .daily .item .label { font-size: 13px; opacity: .85; margin-top: 2px; }
+  .daily .highlight { flex: 1; min-width: 260px; font-size: 14px; line-height: 1.6; opacity: .95; }
+
+  /* 工具栏 */
+  .toolbar { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin: 18px 0; }
+  .tabs { display: flex; gap: 8px; }
+  .tab { padding: 8px 18px; border-radius: 20px; background: #fff; border: 1px solid var(--border);
+         cursor: pointer; font-size: 14px; color: var(--muted); }
+  .tab.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+  .filters { display: flex; gap: 8px; flex-wrap: wrap; }
+  .chip { padding: 6px 14px; border-radius: 16px; background: transparent; border: 1px solid var(--border);
+          cursor: pointer; font-size: 13px; color: var(--muted); }
+  .chip.active { color: var(--accent); border-color: var(--accent); background: rgba(108,92,231,.08); }
+  #search { margin-left: auto; padding: 8px 14px; border-radius: 20px; border: 1px solid var(--border);
+            background: #fff; color: var(--text); font-size: 14px; width: 220px; outline: none; }
+
+  /* 卡片 */
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 18px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; overflow: hidden;
+          cursor: pointer; box-shadow: var(--shadow); transition: transform .15s, box-shadow .15s; }
+  .card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(36,40,59,.12); }
+  .cover { width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block; background: #eceef5; }
+  .cover-placeholder { width: 100%; aspect-ratio: 4/3; display: flex; align-items: center; justify-content: center;
+                       font-size: 40px; background: linear-gradient(135deg, #a29bfe, #74b9ff); color: #fff; }
+  .card-body { padding: 14px 16px 16px; }
+  .badges { display: flex; gap: 6px; margin-bottom: 8px; flex-wrap: wrap; }
+  .badge { font-size: 11px; padding: 2px 8px; border-radius: 10px; }
+  .b-checkpoint { background: rgba(108,92,231,.12); color: var(--accent); }
+  .b-lora { background: rgba(0,184,148,.12); color: var(--green); }
+  .b-plugin { background: rgba(225,112,85,.12); color: var(--orange); }
+  .b-base { background: #f0f1f6; color: var(--muted); }
+  .b-new { background: #ffeaa7; color: #b33939; }
+  .card h3 { font-size: 15px; line-height: 1.35; margin-bottom: 4px; }
+  .summary { font-size: 13px; color: var(--muted); line-height: 1.5; margin-bottom: 10px;
+             display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .creator { color: var(--muted); font-size: 12px; margin-bottom: 10px; }
+  .stats { display: flex; gap: 12px; font-size: 12px; color: var(--muted); flex-wrap: wrap; }
+  .growth { color: var(--green); font-weight: 700; }
+  .empty { text-align: center; color: var(--muted); padding: 80px 0; }
+
+  /* 详情弹窗 */
+  .modal-mask { position: fixed; inset: 0; background: rgba(36,40,59,.5); display: none;
+                align-items: center; justify-content: center; z-index: 100; padding: 20px; }
+  .modal-mask.show { display: flex; }
+  .modal { background: #fff; border-radius: 16px; max-width: 760px; width: 100%;
+           max-height: 88vh; overflow-y: auto; padding: 28px; }
+  .modal h2 { font-size: 22px; margin-bottom: 4px; }
+  .modal .creator { margin-bottom: 14px; }
+  .tldr { background: rgba(108,92,231,.08); border-left: 4px solid var(--accent);
+          padding: 12px 14px; border-radius: 8px; font-size: 14px; line-height: 1.7; margin-bottom: 16px; }
+  .section { margin-bottom: 16px; }
+  .section h4 { font-size: 14px; color: var(--accent); margin-bottom: 8px; }
+  .section p { font-size: 13.5px; line-height: 1.7; color: #3a3f58; white-space: pre-wrap; word-break: break-word; }
+  .kv { display: flex; flex-wrap: wrap; gap: 8px; }
+  .kv .pill { background: #f0f1f6; border-radius: 8px; padding: 6px 12px; font-size: 13px; color: #3a3f58; }
+  .kv .pill b { color: var(--accent); }
+  code.cmd { display: block; background: #24283b; color: #7ee787; padding: 10px 14px; border-radius: 8px;
+             font-size: 13px; margin-top: 8px; word-break: break-all; }
+  .modal-imgs { display: flex; gap: 10px; overflow-x: auto; margin-bottom: 6px; }
+  .modal-imgs img { height: 190px; border-radius: 10px; }
+  .param-block { background: #f7f8fc; border: 1px solid var(--border); border-radius: 8px;
+                 padding: 10px 12px; font-size: 13px; margin-bottom: 8px; }
+  .param-block .k { color: var(--accent); font-weight: 600; }
+  .param-block pre { white-space: pre-wrap; word-break: break-all; margin-top: 4px; font-family: inherit; }
+  .btn-row { display: flex; gap: 10px; margin-top: 18px; flex-wrap: wrap; }
+  .btn { padding: 10px 20px; border-radius: 10px; font-size: 14px; text-decoration: none;
+         border: 1px solid var(--border); color: var(--text); background: #fff; cursor: pointer; }
+  .btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .close { float: right; cursor: pointer; color: var(--muted); font-size: 26px; line-height: 1; }
+  footer { text-align: center; color: var(--muted); font-size: 12px; margin-top: 50px; }
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1><span class="logo">ComfyRadar</span> · ComfyUI 情报站</h1>
+    <div class="nav">
+      <span onclick="openGuide()">📦 新手整合包</span>
+      <a href="https://civitai.com" target="_blank">Civitai</a>
+      <a href="https://registry.comfy.org" target="_blank">插件中心</a>
+    </div>
+    <div class="sub">每天自动追踪 ComfyUI 生态：新模型 / LoRA / 插件更新，附下载地址、显存建议、用法说明</div>
+    <div class="updated" id="updated">加载中…</div>
+  </header>
+
+  <div class="daily" id="daily" style="display:none"></div>
+
+  <div class="toolbar">
+    <div class="tabs">
+      <div class="tab active" data-tab="new">🆕 最新发布</div>
+      <div class="tab" data-tab="growth">🚀 增速榜</div>
+      <div class="tab" data-tab="hot">🔥 本周热门</div>
+    </div>
+    <div class="filters">
+      <div class="chip active" data-f="all">全部</div>
+      <div class="chip" data-f="Checkpoint">Checkpoint 大模型</div>
+      <div class="chip" data-f="LORA">LoRA</div>
+      <div class="chip" data-f="plugin">插件</div>
+    </div>
+    <input id="search" placeholder="搜索名称 / 作者 / 标签…">
+  </div>
+
+  <div class="grid" id="grid"></div>
+  <div class="empty" id="empty" style="display:none">没有匹配的内容</div>
+
+  <footer>数据来源：Civitai / ComfyUI Registry · 每日自动更新 · 封面图已本地化，国内可直接浏览</footer>
+</div>
+
+<div class="modal-mask" id="mask"><div class="modal" id="modal"></div></div>
+
+<script>
+let DATA = { models: [], plugins: [] };
+let SUMMARIES = {};
+let state = { tab: "new", filter: "all", q: "" };
+
+const $ = s => document.querySelector(s);
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const fmt = n => n >= 10000 ? (n/10000).toFixed(1) + "w" : (n >= 1000 ? (n/1000).toFixed(1) + "k" : String(n ?? 0));
+const isNew = d => d && (Date.now() - new Date(d)) < 3 * 864e5;
+
+function sum(x) {  // AI 中文一句话（有则用，没有退回简介）
+  return SUMMARIES[(x._kind === "plugin" ? "p-" : "m-") + x.id]
+      || (x.description || "").split("\n")[0].slice(0, 80)
+      || "";
+}
+
+async function load() {
+  try {
+    const r = await fetch("data/site.json?_=" + Date.now());
+    DATA = await r.json();
+    const t = new Date(DATA.updatedAt);
+    $("#updated").textContent = "数据更新于 " + t.toLocaleString("zh-CN") + (DATA.demo ? "（演示数据）" : "");
+  } catch (e) {
+    $("#updated").textContent = "数据加载失败：请先运行 scripts/fetch_all.py 生成数据";
+  }
+  try {
+    const r2 = await fetch("data/summaries.json?_=" + Date.now());
+    if (r2.ok) SUMMARIES = await r2.json();
+  } catch (e) { /* 摘要可缺省 */ }
+  renderDaily();
+  render();
+}
+
+function renderDaily() {
+  const dayAgo = Date.now() - 864e5;
+  const newModels = DATA.models.filter(m => new Date(m.publishedAt || 0) > dayAgo);
+  const newPlugins = DATA.plugins.filter(p => new Date(p.updatedAt || 0) > dayAgo);
+  const top = [...DATA.models].sort((a, b) => (b.growth || 0) - (a.growth || 0))[0];
+  let hl = "今天生态很安静，去热门榜逛逛吧。";
+  if (top && top.growth > 0) hl = `🚀 今日增速冠军：${esc(top.name)}，24 小时新增下载 ${fmt(top.growth)}。`;
+  else if (newModels.length) hl = `🆕 最新上架：${esc(newModels[0].name)}（${esc(newModels[0].baseModel || newModels[0].type)}），点卡片看用法和显存要求。`;
+  $("#daily").style.display = "flex";
+  $("#daily").innerHTML = `
+    <div class="item"><div class="num">${newModels.length}</div><div class="label">今日新模型/LoRA</div></div>
+    <div class="item"><div class="num">${newPlugins.length}</div><div class="label">今日插件更新</div></div>
+    <div class="item"><div class="num">${DATA.models.length}</div><div class="label">追踪中模型</div></div>
+    <div class="highlight">${hl}</div>`;
+}
+
+function items() {
+  let list = [];
+  if (state.filter === "plugin") {
+    list = DATA.plugins.map(p => ({ ...p, _kind: "plugin" }));
+  } else {
+    list = DATA.models.filter(m => state.filter === "all" || m.type === state.filter)
+                      .map(m => ({ ...m, _kind: m.type }));
+  }
+  if (state.q) {
+    const q = state.q.toLowerCase();
+    list = list.filter(x =>
+      (x.name || "").toLowerCase().includes(q) ||
+      (x.creator || x.author || "").toLowerCase().includes(q) ||
+      sum(x).toLowerCase().includes(q) ||
+      (x.tags || []).some(t => t.toLowerCase().includes(q)));
+  }
+  const by = {
+    new:    (a, b) => new Date(b.publishedAt || b.updatedAt || 0) - new Date(a.publishedAt || a.updatedAt || 0),
+    hot:    (a, b) => (b.downloads ?? b.installs ?? 0) - (a.downloads ?? a.installs ?? 0),
+    growth: (a, b) => (b.growth ?? b.stars ?? 0) - (a.growth ?? a.stars ?? 0),
+  }[state.tab];
+  return list.sort(by).slice(0, 120);
+}
+
+function badge(x) {
+  let h = "";
+  if (x._kind === "plugin") h = `<span class="badge b-plugin">插件</span>`;
+  else {
+    const cls = x.type === "Checkpoint" ? "b-checkpoint" : "b-lora";
+    h = `<span class="badge ${cls}">${x.type === "Checkpoint" ? "大模型" : "LoRA"}</span>` +
+        (x.baseModel ? `<span class="badge b-base">${esc(x.baseModel)}</span>` : "");
+  }
+  if (isNew(x.publishedAt || x.updatedAt)) h += `<span class="badge b-new">NEW</span>`;
+  return h;
+}
+
+function render() {
+  const list = items();
+  $("#empty").style.display = list.length ? "none" : "block";
+  $("#grid").innerHTML = list.map((x, i) => {
+    const src = x.imageLocal || x.image;
+    const cover = src
+      ? `<img class="cover" src="${esc(src)}" loading="lazy" alt="" onerror="this.onerror=null;this.outerHTML='<div class=&quot;cover-placeholder&quot;>🎨</div>'">`
+      : `<div class="cover-placeholder">${x._kind === "plugin" ? "🧩" : "🎨"}</div>`;
+    const stats = x._kind === "plugin"
+      ? `<span>⬇ ${fmt(x.installs)}</span><span>⭐ ${fmt(x.stars)}</span><span>${esc(x.version)}</span>`
+      : `<span>⬇ ${fmt(x.downloads)}</span><span>❤ ${fmt(x.favorites)}</span>` +
+        (x.growth ? `<span class="growth">↑ +${fmt(x.growth)}</span>` : "");
+    const s = sum(x);
+    return `<div class="card" data-i="${i}">
+      ${cover}
+      <div class="card-body">
+        <div class="badges">${badge(x)}</div>
+        <h3>${esc(x.name)}</h3>
+        ${s ? `<div class="summary">${esc(s)}</div>` : ""}
+        <div class="creator">by ${esc(x.creator || x.author)}</div>
+        <div class="stats">${stats}</div>
+      </div>
+    </div>`;
+  }).join("");
+  document.querySelectorAll(".card").forEach((c, i) =>
+    c.addEventListener("click", () => openModal(list[i])));
+}
+
+function openModal(x) {
+  const m = $("#modal");
+  const s = sum(x);
+  let html = `<span class="close" onclick="document.getElementById('mask').classList.remove('show')">×</span>
+    <h2>${esc(x.name)}</h2>
+    <div class="creator">by ${esc(x.creator || x.author)} · ${badge(x)}</div>`;
+  if (s) html += `<div class="tldr">💡 ${esc(s)}</div>`;
+
+  const imgs = (x.imageLocal ? [x.imageLocal] : []).concat(x.images || []);
+  if (imgs.length)
+    html += `<div class="modal-imgs">${[...new Set(imgs)].slice(0, 5).map(u =>
+      `<img src="${esc(u)}" alt="" onerror="this.remove()">`).join("")}</div>`;
+
+  if (x._kind === "plugin") {
+    html += `
+    <div class="section"><h4>📦 这是什么</h4><p>${esc(x.description || s || "ComfyUI 自定义节点插件")}</p></div>
+    <div class="section"><h4>📊 数据</h4><div class="kv">
+      <span class="pill">安装量 <b>${fmt(x.installs)}</b></span>
+      <span class="pill">GitHub ⭐ <b>${fmt(x.stars)}</b></span>
+      <span class="pill">版本 <b>${esc(x.version || "—")}</b></span>
+    </div></div>
+    <div class="section"><h4>🛠 怎么安装</h4>
+      <p>方法一：打开 ComfyUI Manager → Install Custom Nodes → 搜索「${esc(x.name)}」一键安装</p>
+      <code class="cmd">方法二（命令行）：cd ComfyUI/custom_nodes && git clone ${esc(x.repo || x.url)}</code>
+    </div>
+    <div class="btn-row">
+      ${x.repo ? `<a class="btn primary" href="${esc(x.repo)}" target="_blank">🧩 GitHub 仓库</a>` : ""}
+      <a class="btn" href="${esc(x.url)}" target="_blank">🔗 Registry 详情</a>
+    </div>`;
+  } else {
+    if (x.description)
+      html += `<div class="section"><h4>📖 详细介绍</h4><p>${esc(x.description.slice(0, 500))}</p></div>`;
+    html += `<div class="section"><h4>🛠 怎么用</h4>
+      <p>1️⃣ 点下方按钮下载模型文件<br>
+         2️⃣ 把文件放进 <b>${esc(x.usageDir || "ComfyUI/models")}</b><br>
+         3️⃣ 在 ComfyUI 里刷新，选择该模型即可</p>`;
+    if (x.trainedWords && x.trainedWords.length)
+      html += `<div class="kv" style="margin-top:8px"><span class="pill">触发词（提示词里写上才生效）：<b>${esc(x.trainedWords.join("、"))}</b></span></div>`;
+    if (x.type === "LORA")
+      html += `<code class="cmd">提示词写法示例：&lt;lora:${esc(x.name)}:0.8&gt; + 触发词（权重 0.6–1.0 之间调）</code>`;
+    html += `</div>
+    <div class="section"><h4>💻 显存建议</h4><div class="kv">
+      <span class="pill">🎮 ${esc(x.vram || "约 6–8GB")}</span>
+      <span class="pill">📦 文件大小 ${x.fileSizeMB ?? "?"} MB</span>
+      <span class="pill">底座 ${esc(x.baseModel || "—")}</span>
+      <span class="pill">评分 ⭐ ${x.rating ?? "—"}</span>
+    </div></div>`;
+    if (x.params && Object.keys(x.params).length) {
+      html += `<div class="section"><h4>🎛 官方示例生成参数（照抄就能复现效果图）</h4>`;
+      for (const [k, v] of Object.entries(x.params))
+        html += `<div class="param-block"><span class="k">${esc(k)}</span><pre>${esc(v)}</pre></div>`;
+      html += `</div>`;
+    }
+    html += `<div class="btn-row">
+      <a class="btn primary" href="${esc(x.downloadUrl)}" target="_blank">⬇ 下载（${x.fileSizeMB ?? "?"} MB）</a>
+      <a class="btn" href="${esc(x.url)}" target="_blank">🔗 Civitai 详情页</a>
+    </div>`;
+  }
+  m.innerHTML = html;
+  $("#mask").classList.add("show");
+}
+
+function openGuide() {
+  $("#modal").innerHTML = `<span class="close" onclick="document.getElementById('mask').classList.remove('show')">×</span>
+    <h2>📦 ComfyUI 新手入门</h2>
+    <div class="section"><h4>一键整合包（推荐新手）</h4>
+      <p>国内最常用的是「秋叶整合包」，免配置开箱即用，自带 ComfyUI-Manager：<br>
+      B 站搜索 <b>「秋叶aaaki ComfyUI 整合包」</b>，UP 主主页有最新版下载（百度网盘/夸克）。</p></div>
+    <div class="section"><h4>官方安装（英文 OK 的话）</h4>
+      <code class="cmd">git clone https://github.com/comfyanonymous/ComfyUI</code>
+      <p style="margin-top:6px">然后去 Releases 下载便携版，解压即用。</p></div>
+    <div class="section"><h4>装好之后</h4>
+      <p>回到本站，从「🔥 本周热门」挑一个模型 → 点下载 → 按卡片里的「怎么用」说明放进对应目录即可开始跑图。</p></div>`;
+  $("#mask").classList.add("show");
+}
+
+$("#mask").addEventListener("click", e => { if (e.target.id === "mask") e.target.classList.remove("show"); });
+document.querySelectorAll(".tab").forEach(t => t.addEventListener("click", () => {
+  document.querySelectorAll(".tab").forEach(x => x.classList.remove("active"));
+  t.classList.add("active"); state.tab = t.dataset.tab; render();
+}));
+document.querySelectorAll(".chip").forEach(c => c.addEventListener("click", () => {
+  document.querySelectorAll(".chip").forEach(x => x.classList.remove("active"));
+  c.classList.add("active"); state.filter = c.dataset.f; render();
+}));
+$("#search").addEventListener("input", e => { state.q = e.target.value.trim(); render(); });
+
+load();
+</script>
+</body>
+</html>
