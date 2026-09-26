@@ -448,6 +448,142 @@ def demo_data():
     }
 
 
+# ---------------- 日报 & RSS ----------------
+
+SITE_URL = "https://shiqi17-go.github.io/comfy-radar/"
+DIGEST_DIR = DATA_DIR / "digest"
+FEED_XML = ROOT / "feed.xml"
+
+
+def _load_summaries():
+    f = DATA_DIR / "summaries.json"
+    if f.exists():
+        try:
+            return json.loads(f.read_text(encoding="utf-8"))
+        except Exception:
+            pass
+    return {}
+
+
+def _fmt_num(n):
+    if n is None:
+        return "0"
+    return f"{n/10000:.1f}w" if n >= 10000 else (f"{n/1000:.1f}k" if n >= 1000 else str(n))
+
+
+def make_digest(data):
+    """生成「ComfyUI 日报」Markdown，可直接粘贴到知乎/公众号/小红书。"""
+    sums = _load_summaries()
+    now = datetime.now(timezone(timedelta(hours=8)))  # 北京时间
+    day_ago = datetime.now(timezone.utc) - timedelta(hours=24)
+    date_cn = now.strftime("%Y-%m-%d")
+
+    def is_new(x, key):
+        try:
+            return datetime.fromisoformat(str(x.get(key, "")).replace("Z", "+00:00")) > day_ago
+        except Exception:
+            return False
+
+    models = data["models"]
+    new_models = [m for m in models if is_new(m, "publishedAt")]
+    new_ckpt = [m for m in new_models if m["type"] == "Checkpoint"]
+    new_lora = [m for m in new_models if m["type"] == "LORA"]
+    new_plugins = [p for p in data["plugins"] if is_new(p, "updatedAt")]
+    growth = sorted([m for m in models if m.get("growth")], key=lambda m: -m["growth"])[:5]
+    hot = sorted(models, key=lambda m: -(m["downloads"] or 0))[:5]
+
+    def line_m(m):
+        s = sums.get("m-" + str(m["id"]), "")
+        extra = f" · {m['baseModel']}" if m.get("baseModel") else ""
+        size = f" · {m['fileSizeMB']}MB" if m.get("fileSizeMB") else ""
+        desc = f"\n  {s}" if s else ""
+        return (f"- [{m['name']}]({m['url']}){extra}{size} · 下载 {_fmt_num(m['downloads'])}"
+                f"{desc}")
+
+    out = [f"# ComfyUI 日报 · {date_cn}",
+           "",
+           f"> 今日新增 {len(new_models)} 个模型/LoRA（大模型 {len(new_ckpt)} / LoRA {len(new_lora)}），"
+           f"{len(new_plugins)} 个插件有更新。",
+           f"> 数据来自 ComfyRadar 情报站：{SITE_URL}",
+           ""]
+    if growth:
+        out += ["## 🚀 今日增速榜（24 小时内最猛的）", ""]
+        out += [f"- [{m['name']}]({m['url']}) · +{_fmt_num(m['growth'])} 下载"
+                + (f"（{sums['m-' + str(m['id'])]}）" if sums.get("m-" + str(m["id"])) else "")
+                for m in growth]
+        out.append("")
+    if new_models:
+        out += ["## 🆕 今日新品", ""]
+        out += [line_m(m) for m in sorted(new_models, key=lambda m: -(m["downloads"] or 0))[:10]]
+        out.append("")
+    if new_plugins:
+        out += ["## 🧩 插件更新", ""]
+        out += [f"- [{p['name']}]({p['url']})"
+                + (f" v{p['version']}" if p.get("version") else "")
+                + f" · ⭐{_fmt_num(p['stars'])}"
+                + (f"\n  {sums['p-' + str(p['id'])]}" if sums.get("p-" + str(p["id"])) else "")
+                for p in sorted(new_plugins, key=lambda p: -(p["stars"] or 0))[:8]]
+        out.append("")
+    out += ["## 🔥 本周热门 Top5", ""]
+    out += [line_m(m) for m in hot]
+    out += ["", "---", f"📡 每天自动更新，收藏网站追新：{SITE_URL}",
+            "数据来源：Civitai / ComfyUI Registry"]
+    md = "\n".join(out)
+
+    DIGEST_DIR.mkdir(parents=True, exist_ok=True)
+    (DIGEST_DIR / f"{date_cn}.md").write_text(md, encoding="utf-8")
+    (DIGEST_DIR / "latest.md").write_text(md, encoding="utf-8")
+    print(f"    日报已生成: data/digest/{date_cn}.md")
+    return date_cn, md
+
+
+def make_rss(data, date_cn, md):
+    """生成 RSS 2.0：每天一条日报 + 今日新品单条。"""
+    sums = _load_summaries()
+    now = datetime.now(timezone.utc)
+    day_ago = now - timedelta(hours=24)
+
+    def is_new(m):
+        try:
+            return datetime.fromisoformat(str(m.get("publishedAt", "")).replace("Z", "+00:00")) > day_ago
+        except Exception:
+            return False
+
+    def esc(s):
+        return (str(s).replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;"))
+
+    items = [f"""    <item>
+      <title>ComfyUI 日报 · {esc(date_cn)}</title>
+      <link>{SITE_URL}</link>
+      <guid>{SITE_URL}#digest-{date_cn}</guid>
+      <pubDate>{now.strftime('%a, %d %b %Y %H:%M:%S +0000')}</pubDate>
+      <description><![CDATA[{md}]]></description>
+    </item>"""]
+    for m in [m for m in data["models"] if is_new(m)][:15]:
+        s = sums.get("m-" + str(m["id"]), m.get("description", "")[:100])
+        items.append(f"""    <item>
+      <title>[{esc(m['type'])}] {esc(m['name'])}</title>
+      <link>{esc(m['url'])}</link>
+      <guid>model-{m['id']}-{date_cn}</guid>
+      <pubDate>{now.strftime('%a, %d %b %Y %H:%M:%S +0000')}</pubDate>
+      <description><![CDATA[{s} · {m.get('baseModel','')} · 下载 {_fmt_num(m['downloads'])}]]></description>
+    </item>""")
+
+    xml = f"""<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>ComfyRadar · ComfyUI 情报站</title>
+    <link>{SITE_URL}</link>
+    <description>每日自动聚合 ComfyUI 生态最新模型 / LoRA / 插件</description>
+    <language>zh-CN</language>
+{chr(10).join(items)}
+  </channel>
+</rss>
+"""
+    FEED_XML.write_text(xml, encoding="utf-8")
+    print("    RSS 已生成: feed.xml")
+
+
 # ---------------- 主流程 ----------------
 
 def main():
@@ -481,6 +617,13 @@ def main():
     SITE_JSON.write_text(json.dumps(data, ensure_ascii=False, indent=1),
                          encoding="utf-8")
     print(f"[OK] 写入 {SITE_JSON}（模型 {len(data['models'])} / 插件 {len(data['plugins'])}）")
+    # 日报 + RSS（演示模式也生成，方便本地预览）
+    print("[*] 生成日报与 RSS ...")
+    try:
+        date_cn, md = make_digest(data)
+        make_rss(data, date_cn, md)
+    except Exception as e:
+        print(f"[!] 日报/RSS 生成失败（不影响主数据）: {e}", file=sys.stderr)
     # 数据落盘后再下载封面，即使中断也不丢数据
     if not demo:
         print("[*] 下载封面图 ...")

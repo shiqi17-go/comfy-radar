@@ -3,7 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ComfyRadar · ComfyUI 情报站</title>
+<meta name="description" content="ComfyRadar：ComfyUI 情报站。每日自动聚合 Civitai 最新模型/LoRA、ComfyUI 插件更新，附下载地址、显存建议、触发词与生成参数。追踪 Flux、SDXL、Z-Image、Qwen-Image 生态，每天一分钟掌握 ComfyUI 圈最新动态。">
+<meta name="keywords" content="ComfyUI,模型推荐,LoRA,Checkpoint,插件,Civitai,Flux,SDXL,Z-Image,AI绘画,工作流,日报">
+<meta property="og:title" content="ComfyRadar · ComfyUI 情报站">
+<meta property="og:description" content="每日自动聚合 ComfyUI 最新模型/LoRA/插件，附下载地址与用法说明">
+<meta property="og:type" content="website">
+<link rel="alternate" type="application/rss+xml" title="ComfyRadar RSS" href="feed.xml">
+<title>ComfyRadar · ComfyUI 情报站 - 每日最新模型/LoRA/插件聚合</title>
 <style>
   :root {
     --bg: #f4f5fa; --card: #ffffff; --border: #e6e8f0;
@@ -113,6 +119,8 @@
   <header>
     <h1><span class="logo">ComfyRadar</span> · ComfyUI 情报站</h1>
     <div class="nav">
+      <span onclick="openDigest()">📰 今日日报</span>
+      <a href="feed.xml" target="_blank">RSS</a>
       <span onclick="openGuide()">📦 新手整合包</span>
       <a href="https://civitai.com" target="_blank">Civitai</a>
       <a href="https://registry.comfy.org" target="_blank">插件中心</a>
@@ -332,6 +340,47 @@ function openModal(x) {
   }
   m.innerHTML = html;
   $("#mask").classList.add("show");
+}
+
+function renderMd(md) {
+  // 轻量 Markdown 渲染：标题/列表/链接/引用/分隔线
+  return md.split("\n").map(line => {
+    line = line.replace(/\[([^\]]+)\]\(([^)]+)\)/g,
+      '<a href="$2" target="_blank" style="color:var(--accent)">$1</a>');
+    if (line.startsWith("## ")) return `<h4 style="margin:14px 0 6px;color:var(--accent)">${line.slice(3)}</h4>`;
+    if (line.startsWith("# ")) return `<h3 style="margin-bottom:8px">${line.slice(2)}</h3>`;
+    if (line.startsWith("&gt; ") || line.startsWith("> ")) return `<div style="color:var(--muted);font-size:13px">${line.slice(2)}</div>`;
+    if (line.startsWith("- ")) return `<div style="padding:3px 0 3px 14px;font-size:14px;line-height:1.6">· ${line.slice(2)}</div>`;
+    if (line.startsWith("---")) return `<hr style="border:none;border-top:1px solid var(--border);margin:12px 0">`;
+    if (!line.trim()) return "";
+    return `<div style="font-size:13px;color:var(--muted);padding-left:28px">${line}</div>`;
+  }).join("");
+}
+
+let _digestMd = "";
+async function openDigest() {
+  const m = $("#modal");
+  m.innerHTML = `<span class="close" onclick="document.getElementById('mask').classList.remove('show')">×</span>
+    <h2>📰 ComfyUI 日报</h2><p style="color:var(--muted)">加载中…</p>`;
+  $("#mask").classList.add("show");
+  try {
+    const r = await fetch("data/digest/latest.md?_=" + Date.now());
+    if (!r.ok) throw new Error();
+    _digestMd = await r.text();
+    m.innerHTML = `<span class="close" onclick="document.getElementById('mask').classList.remove('show')">×</span>
+      ${renderMd(_digestMd)}
+      <div class="btn-row"><button class="btn primary" onclick="copyDigest()">📋 一键复制（去知乎/公众号/小红书粘贴）</button></div>`;
+  } catch (e) {
+    m.innerHTML = `<span class="close" onclick="document.getElementById('mask').classList.remove('show')">×</span>
+      <h2>📰 日报</h2><p>日报还没生成，明天自动更新后就有啦。</p>`;
+  }
+}
+
+function copyDigest() {
+  navigator.clipboard.writeText(_digestMd).then(() => {
+    const btn = event.target; btn.textContent = "✅ 已复制，去粘贴吧";
+    setTimeout(() => btn.textContent = "📋 一键复制（去知乎/公众号/小红书粘贴）", 2000);
+  });
 }
 
 function openGuide() {

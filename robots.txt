@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://shiqi17-go.github.io/comfy-radar/sitemap.xml
