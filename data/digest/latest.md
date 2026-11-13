@@ -1,42 +1,43 @@
-# ComfyUI 日报 · 2026-11-12
+# ComfyUI 日报 · 2026-11-13
 
-> 今日新增 67 个模型/LoRA（大模型 23 / LoRA 44），3 个插件有更新。
+> 今日新增 80 个模型/LoRA（大模型 34 / LoRA 46），3 个插件有更新。
 > 数据来自 ComfyRadar 情报站：https://shiqi17-go.github.io/comfy-radar/
 
 ## 🚀 今日增速榜（24 小时内最猛的）
 
-- [⛩️💀 DaSiWa MiniMax H3 💀⛩️](https://civitai.com/models/2877206) · +1.2k 下载
-- [Nova Anime AM](https://civitai.com/models/2604424) · +928 下载（Nova Anime的Anima版大模型，Anime、2.5D、3D通吃，插画和数字艺术都稳，喜欢干净二次元画面的可以收。）
-- [FineView 欢视 | H3Image](https://civitai.com/models/3045885) · +616 下载
-- [Aesthetic Quality Modifiers - Masterpiece](https://civitai.com/models/929497) · +615 下载
-- [Ultra Realistic By Stable Yogi Krea2](https://civitai.com/models/3031081) · +492 下载
+- [⛩️💀 DaSiWa MiniMax H3 💀⛩️](https://civitai.com/models/2877206) · +1.1k 下载
+- [Nova Anime AM](https://civitai.com/models/2604424) · +548 下载（Nova Anime的Anima版大模型，Anime、2.5D、3D通吃，插画和数字艺术都稳，喜欢干净二次元画面的可以收。）
+- [Aesthetic Quality Modifiers - Masterpiece](https://civitai.com/models/929497) · +548 下载
+- [Ultra Realistic By Stable Yogi Krea2](https://civitai.com/models/3031081) · +449 下载
+- [[Anima/MOSS] sekali_p style](https://civitai.com/models/3005005) · +363 下载
 
 ## 🆕 今日新品
 
-- [MiaoMiao RealSkin](https://civitai.com/models/2026594) · MOSS Image · 5162.9MB · 下载 6.8w
-- [Cyberpunk Anime Style](https://civitai.com/models/128568) · Krea 2 · 218.0MB · 下载 4.5w
-- [748cm | Shiiro's Styles | Niji](https://civitai.com/models/1221007) · Krea 2 Turbo · 218.0MB · 下载 3.1w
-- [The Look](https://civitai.com/models/1882546) · MOSS Image · 138.4MB · 下载 1.2w
-- [[BSS] - Styles for Krea2](https://civitai.com/models/2762978) · Krea 2 · 218.0MB · 下载 1.1w
-- [Graphic portrait](https://civitai.com/models/170039) · Krea 2 · 436.0MB · 下载 1.0w
-- [AniKawaXL](https://civitai.com/models/1282887) · Illustrious · 6616.6MB · 下载 8.9k
-- [エンジェル風 90sレトロ漫画スタイル / ANGEL-Inspired 90s Retro Manga Style for Anima / Illustrious](https://civitai.com/models/1725437) · Anima · 87.6MB · 下载 7.4k
-- [One obsession_3D](https://civitai.com/models/2772290) · Illustrious · 6616.6MB · 下载 6.8k
-- [ReKemono](https://civitai.com/models/1941304) · Illustrious · 6616.6MB · 下载 6.6k
+- [Famegrid (Krea 2 / Z-Image / Qwen) - Realism LoRA](https://civitai.com/models/2088956) · Krea 2 · 1490.0MB · 下载 5.5w
+- [Ri-mix - [Illustrious + Anima + Krea 2 Turbo]](https://civitai.com/models/996495) · Krea 2 Turbo · 242.0MB · 下载 5.0w
+- [Body weight slider. (Skinny ===> Fat slider)](https://civitai.com/models/2513759) · MOSS Image · 78.8MB · 下载 1.8w
+- [Omar Dogan - Style 1.5/Pony/Illustrious/Noob/ZIT/Anima/Krea2/MOSS LORA](https://civitai.com/models/16137) · MOSS Image · 79.8MB · 下载 9.8k
+- [Super Sailor Moon Outfit [Costume Lora] / スーパーセーラームーン衣装](https://civitai.com/models/105304) · Anima · 22.0MB · 下载 8.2k
+- [Anime X Reality | Shiiro's Styles](https://civitai.com/models/1163407) · Krea 2 · 218.0MB · 下载 7.7k
+- [Lips size slider](https://civitai.com/models/2533131) · Krea 2 · 204.8MB · 下载 6.6k
+- [Cyber Graphic](https://civitai.com/models/104855) · MOSS Image · 138.4MB · 下载 6.2k
+- [Super Sailor Moon / スーパーセーラームーン](https://civitai.com/models/271047) · Anima · 22.0MB · 下载 4.9k
+- [Manga style (Berserk)](https://civitai.com/models/743448) · MOSS Image · 138.4MB · 下载 4.3k
 
 ## 🧩 插件更新
 
-- [ComfyUI-DaSiWa-Nodes](https://registry.comfy.org/nodes/ComfyUI-DaSiWa-Nodes) v0.5.45 · ⭐226
-- [Checkpoint Thumbnail Exporter](https://registry.comfy.org/nodes/ComfyUI-CheckpointThumbnailExporter) v0.2.1 · ⭐1
-- [ComfyUI-GadgetNodes](https://registry.comfy.org/nodes/ComfyUI-GadgetNodes) v0.0.11 · ⭐1
+- [ComfyUI-DD-Translation](https://registry.comfy.org/nodes/ComfyUI-DD-Translation) v3.2.0 · ⭐848
+- [ComfyUI-Element_TileEdit](https://registry.comfy.org/nodes/ComfyUI-Element_TileEdit) v0.7.0 · ⭐21
+- [ComfyUI-FileExplorer](https://registry.comfy.org/nodes/ComfyUI-FileExplorer) v1.0.0 · ⭐0
 
 ## 🔥 本周热门 Top5
 
-- [Velvet's Mythic Fantasy Styles | Flux + Pony + illustrious + ZiT + Anima + Krea2](https://civitai.com/models/599757) · MOSS Image · 123.0MB · 下载 25.0w
 - [Aesthetic Quality Modifiers - Masterpiece](https://civitai.com/models/929497) · MOSS Image · 264.8MB · 下载 18.3w
 - [MatureRitual丨熟メス儀式](https://civitai.com/models/994401) · MOSS Image · 5162.9MB · 下载 8.1w
-- [⛩️💀 DaSiWa MiniMax H3 💀⛩️](https://civitai.com/models/2877206) · MiniMax H3 · 19996.3MB · 下载 7.7w
+- [⛩️💀 DaSiWa MiniMax H3 💀⛩️](https://civitai.com/models/2877206) · MiniMax H3 · 19996.3MB · 下载 7.8w
 - [MiaoMiao RealSkin](https://civitai.com/models/2026594) · MOSS Image · 5162.9MB · 下载 6.8w
+- [Nova Anime AM](https://civitai.com/models/2604424) · Anima · 5573.0MB · 下载 6.5w
+  Nova Anime的Anima版大模型，Anime、2.5D、3D通吃，插画和数字艺术都稳，喜欢干净二次元画面的可以收。
 
 ---
 📡 每天自动更新，收藏网站追新：https://shiqi17-go.github.io/comfy-radar/
