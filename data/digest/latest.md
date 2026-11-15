@@ -1,34 +1,39 @@
-# ComfyUI 日报 · 2026-11-14
+# ComfyUI 日报 · 2026-11-15
 
-> 今日新增 86 个模型/LoRA（大模型 38 / LoRA 48），0 个插件有更新。
+> 今日新增 75 个模型/LoRA（大模型 29 / LoRA 46），3 个插件有更新。
 > 数据来自 ComfyRadar 情报站：https://shiqi17-go.github.io/comfy-radar/
 
 ## 🚀 今日增速榜（24 小时内最猛的）
 
-- [⛩️💀 DaSiWa MiniMax H3 💀⛩️](https://civitai.com/models/2877206) · +1.0k 下载
-- [Aesthetic Quality Modifiers - Masterpiece](https://civitai.com/models/929497) · +625 下载
-- [Famegrid (Krea 2 / Z-Image / Qwen) - Realism LoRA](https://civitai.com/models/2088956) · +526 下载
-- [Ultra Realistic By Stable Yogi Krea2](https://civitai.com/models/3031081) · +499 下载
-- [Nova Anime AM](https://civitai.com/models/2604424) · +490 下载（Nova Anime的Anima版大模型，Anime、2.5D、3D通吃，插画和数字艺术都稳，喜欢干净二次元画面的可以收。）
+- [⛩️💀 DaSiWa MiniMax H3 💀⛩️](https://civitai.com/models/2877206) · +919 下载
+- [Aesthetic Quality Modifiers - Masterpiece](https://civitai.com/models/929497) · +680 下载
+- [Ultra Realistic By Stable Yogi Krea2](https://civitai.com/models/3031081) · +602 下载
+- [Nova Anime AM](https://civitai.com/models/2604424) · +526 下载（Nova Anime的Anima版大模型，Anime、2.5D、3D通吃，插画和数字艺术都稳，喜欢干净二次元画面的可以收。）
+- [[Anima/MOSS] sekali_p style](https://civitai.com/models/3005005) · +499 下载
 
 ## 🆕 今日新品
 
-- [Moody Krea 2 Mix - V9 is here - V8SE Free免费!](https://civitai.com/models/2731187) · Krea 2 · 13143.6MB · 下载 12.6w
-  Moody Krea 2混搭大模型，主打情绪化氛围感画面，出图偏艺术风，无审查版，想要自由发挥的写实党可蹲。
-- [AnimaIka](https://civitai.com/models/2426265) · Anima · 3988.5MB · 下载 3.2w
-  AnimaIka是基于Anima的二次元大模型，兼容ComfyUI和Forge Neo，safe到explicit分级支持，出图稳定好上手。
-- [Detailifier](https://civitai.com/models/430687) · Qwen 2.1 · 40.1MB · 下载 3.0w
-- [エンジェル風 90sレトロ漫画スタイル / ANGEL-Inspired 90s Retro Manga Style for Anima / Illustrious](https://civitai.com/models/1725437) · Anima · 87.6MB · 下载 7.6k
-- [Cyber Graphic](https://civitai.com/models/104855) · MOSS Image · 138.4MB · 下载 6.3k
-- [hwm4to7A3IFRHPR | Style LoRa](https://civitai.com/models/1159098) · Krea 2 Turbo · 218.0MB · 下载 5.9k
-- [Long legs slider](https://civitai.com/models/2568691) · MOSS Image · 78.8MB · 下载 4.9k
-- [Inusen(Milftoon) Style](https://civitai.com/models/351113) · Anima · 132.2MB · 下载 4.4k
-- [Chel (The Road to El Dorado) (DreamWorks) [MOSS & ANI & IL]](https://civitai.com/models/1161501) · MOSS Image · 141.8MB · 下载 4.3k
-- [Arknights: Endfield | Operators Collection](https://civitai.com/models/2425904) · MOSS Image · 264.8MB · 下载 4.1k
+- [Perfect Round Ass | olaz](https://civitai.com/models/131822) · Krea 2 · 223.8MB · 下载 5.0w
+- [地雷系/jirai kei](https://civitai.com/models/604286) · MOSS Image · 138.4MB · 下载 2.3w
+  地雷系穿搭LoRA，一键换上日系地雷风服装，权重1.0左右很稳，做动漫立绘或时尚插画都行，地雷系党冲。
+- [Nova Orange AM](https://civitai.com/models/2606801) · Anima · 5573.3MB · 下载 1.3w
+- [96yottea | Style LoRa](https://civitai.com/models/1031927) · Krea 2 Turbo · 218.0MB · 下载 1.3w
+- [Tiny Things](https://civitai.com/models/2313869) · MOSS Image · 138.4MB · 下载 5.0k
+- [Hasumi Hanekawa 羽川ハスミ | Blue Archive | 3 Outfits [Anima v1.0]](https://civitai.com/models/1139135) · Anima · 43.8MB · 下载 4.7k
+- [Takagi (Teasing Master Takagi-San/Karakai Jouzu no Takagi-san)](https://civitai.com/models/1043767) · Krea 2 · 218.0MB · 下载 3.8k
+- [Asian Fusion by latentmaster - Krea2](https://civitai.com/models/3032070) · Krea 2 · 7070.9MB · 下载 1.9k
+- [UnrealVision (Krea2/ZIT/Universal)](https://civitai.com/models/2743455) · Krea 2 Turbo · 7011.5MB · 下载 1.9k
+- [Prey Angel](https://civitai.com/models/442048) · Krea 2 Turbo · 12860.6MB · 下载 430
+
+## 🧩 插件更新
+
+- [ComfyUI-DaSiWa-Nodes](https://registry.comfy.org/nodes/ComfyUI-DaSiWa-Nodes) v0.5.54 · ⭐227
+- [ComfyUI-988](https://registry.comfy.org/nodes/ComfyUI-988) v2.0.0 · ⭐1
+- [Comfy-DeepSeekAPI](https://registry.comfy.org/nodes/Comfy-DeepSeekAPI) v1.0.6 · ⭐0
 
 ## 🔥 本周热门 Top5
 
-- [Aesthetic Quality Modifiers - Masterpiece](https://civitai.com/models/929497) · MOSS Image · 264.8MB · 下载 18.4w
+- [Aesthetic Quality Modifiers - Masterpiece](https://civitai.com/models/929497) · MOSS Image · 264.8MB · 下载 18.5w
 - [Moody Krea 2 Mix - V9 is here - V8SE Free免费!](https://civitai.com/models/2731187) · Krea 2 · 13143.6MB · 下载 12.6w
   Moody Krea 2混搭大模型，主打情绪化氛围感画面，出图偏艺术风，无审查版，想要自由发挥的写实党可蹲。
 - [MatureRitual丨熟メス儀式](https://civitai.com/models/994401) · MOSS Image · 5162.9MB · 下载 8.1w
